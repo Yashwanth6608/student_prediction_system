@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student System</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR ONLY AFTER LOGIN -->
+    {% if session.get('user_id') %}
+    <div class="navbar">
+      <h2>🎓 Student System</h2>
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/predict">Predict</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+    {% endif %} {% block content %} {% endblock %}
+  </body>
+</html>

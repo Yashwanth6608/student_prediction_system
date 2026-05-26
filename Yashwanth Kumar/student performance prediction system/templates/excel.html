@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="width:95%; margin:25px auto;">
+
+    <h2 style="text-align:center;">📊 Excel View - Prediction Data</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0"
+           style="width:100%; background:white;
+           border-collapse:collapse; text-align:center; margin-top:20px;">
+
+        <tr style="background:#107c41; color:white;">
+            <th>ID</th>
+            <th>Username</th>
+            <th>Study</th>
+            <th>Attendance</th>
+            <th>Previous Score</th>
+            <th>Sleep</th>
+            <th>Papers</th>
+            <th>Result</th>
+        </tr>
+
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-container">
+    <h2>📊 Student Performance Prediction</h2>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+
+        <label>Study Hours</label>
+        <input type="number" step="0.01" name="study" placeholder="Enter study hours" required>
+
+        <label>Attendance Percentage</label>
+        <input type="number" step="0.01" name="attendance" placeholder="Enter attendance %" required>
+
+        <label>Previous Score</label>
+        <input type="number" step="0.01" name="previous_score" placeholder="Enter previous score" required>
+
+        <label>Sleep Hours</label>
+        <input type="number" step="0.01" name="sleep" placeholder="Enter sleep hours" required>
+
+        <label>Sample Papers Practiced</label>
+        <input type="number" step="0.01" name="papers" placeholder="Enter number of papers" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result-box">
+            <h3>Result: {{ prediction_text }}</h3>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
